@@ -128,6 +128,8 @@ services:
     ports:
       - "27656:27656"
       - "${METRICS_LISTEN_IP}:27660:27660"
+    volumes_from:
+      - assets:ro
     volumes:
       - ./data/chain:/chain
     command: "--config /chain/config/config.toml"
