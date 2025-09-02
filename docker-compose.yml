@@ -15,7 +15,7 @@ x-image-metrics: &image-metrics
 x-shutter-environment: &shutter-environment
   #- SHUTTER_INSTANCEID= - set via config script
   - SHUTTER_DATABASEURL=postgres://postgres@db:5432/keyper
-  - SHUTTER_HTTP_ENABLED=${SHUTTER_HTTP_ENABLED}
+  - SHUTTER_HTTP_ENABLED=${false}
   #- SHUTTER_MAXNUMKEYSPERMESSAGE= - set via config script
   #- SHUTTER_CHAIN_SYNCSTARTBLOCKNUMBER= - set via config script
   - SHUTTER_CHAIN_NODE_PRIVATEKEY=${SIGNING_KEY}
@@ -24,13 +24,13 @@ x-shutter-environment: &shutter-environment
   #- SHUTTER_CHAIN_CONTRACTS_KEYBROADCASTCONTRACT= - set via config script
   #- SHUTTER_CHAIN_CONTRACTS_SHUTTERREGISTRY= - set via config script
   #- SHUTTER_P2P_CUSTOMBOOTSTRAPADDRESSES= - set via config script
-  - SHUTTER_P2P_LISTENADDRESSES=/ip4/0.0.0.0/tcp/24003,/ip4/0.0.0.0/udp/24003/quic-v1
-  - SHUTTER_P2P_ADVERTISEADDRESSES=/ip4/${PUBLIC_IP}/tcp/24003,/ip4/${PUBLIC_IP}/udp/24003/quic-v1
+  - SHUTTER_P2P_LISTENADDRESSES=/ip4/0.0.0.0/tcp/${P2P_PORT},/ip4/0.0.0.0/udp/${P2P_PORT}/quic-v1
+  - SHUTTER_P2P_ADVERTISEADDRESSES=/ip4/${PUBLIC_IP}/tcp/${P2P_PORT},/ip4/${PUBLIC_IP}/udp/${P2P_PORT}/quic-v1
   #- SHUTTER_P2P_DISCOVERYNAMESPACE= - set via config script
   - SHUTTER_SHUTTERMINT_SHUTTERMINTURL=http://chain:26657
   #- SHUTTER_SHUTTERMINT_DKGPHASELENGTH= - set via config script
   #- SHUTTER_SHUTTERMINT_DKGSTARTBLOCKDELTA= - set via config script
-  - SHUTTER_METRICS_ENABLED=${METRICS_ENABLED}
+  - SHUTTER_METRICS_ENABLED=${false}
   - SHUTTER_METRICS_PORT=9200
 
 x-shuttermint-environment: &shuttermint-environment
@@ -156,7 +156,7 @@ services:
     volumes:
       - ./config:/config
     ports:
-      - "24003:24003"
+      - ${P2P_PORT}:${P2P_PORT}
       - "${METRICS_LISTEN_IP}:9200:9200"
       - "3000:3000"
     depends_on:
