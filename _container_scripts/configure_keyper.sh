@@ -37,22 +37,22 @@ if [ "$SHUTTER_HTTP_ENABLED" = "true" ] || [ "$SHUTTER_HTTP_ENABLED" = "false" ]
   sed -i "/^HTTPEnabled =/c\HTTPEnabled = $SHUTTER_HTTP_ENABLED" $CFG
 fi
 sed -i "/^DatabaseURL/c\DatabaseURL = \"${SHUTTER_DATABASEURL}\"" $CFG
-sed -i "/^MaxNumKeysPerMessage/c\MaxNumKeysPerMessage = ${_ASSETS_MAX_NUM_KEYS_PER_MESSAGE}" $CFG
-sed -i "/^SyncStartBlockNumber/c\SyncStartBlockNumber = ${_ASSETS_SYNC_START_BLOCK_NUMBER}" $CFG
+# sed -i "/^MaxNumKeysPerMessage/c\MaxNumKeysPerMessage = ${_ASSETS_MAX_NUM_KEYS_PER_MESSAGE}" $CFG
+# sed -i "/^SyncStartBlockNumber/c\SyncStartBlockNumber = ${_ASSETS_SYNC_START_BLOCK_NUMBER}" $CFG
 sed -i "/^PrivateKey/c\PrivateKey = \"${SHUTTER_CHAIN_NODE_PRIVATEKEY}\"" $CFG
 sed -i "/^DeploymentDir/c\DeploymentDir = \"\"  # unused" $CFG
 sed -i "/^EthereumURL/c\EthereumURL = \"${SHUTTER_CHAIN_NODE_ETHEREUMURL}\"" $CFG
-sed -i "/^KeyperSetManager/c\KeyperSetManager = \"${_ASSETS_KEYPER_SET_MANAGER}\"" $CFG
-sed -i "/^KeyBroadcastContract/c\KeyBroadcastContract = \"${_ASSETS_KEY_BROADCAST_CONTRACT}\"" $CFG
-sed -i "/^ShutterRegistry/c\ShutterRegistry = \"${_ASSETS_SHUTTERREGISTRY}\"" $CFG
-sed -i "/^DiscoveryNamespace/c\DiscoveryNamespace = \"${_ASSETS_DISCOVERY_NAME_PREFIX}-${_ASSETS_INSTANCE_ID}\"" $CFG
-sed -i "/^ShuttermintURL/c\ShuttermintURL = \"${SHUTTER_SHUTTERMINT_SHUTTERMINTURL}\"" $CFG
+# sed -i "/^KeyperSetManager/c\KeyperSetManager = \"${_ASSETS_KEYPER_SET_MANAGER}\"" $CFG
+# sed -i "/^KeyBroadcastContract/c\KeyBroadcastContract = \"${_ASSETS_KEY_BROADCAST_CONTRACT}\"" $CFG
+# sed -i "/^ShutterRegistry/c\ShutterRegistry = \"${_ASSETS_SHUTTERREGISTRY}\"" $CFG
+# sed -i "/^DiscoveryNamespace/c\DiscoveryNamespace = \"${_ASSETS_DISCOVERY_NAME_PREFIX}-${_ASSETS_INSTANCE_ID}\"" $CFG
+# sed -i "/^ShuttermintURL/c\ShuttermintURL = \"${SHUTTER_SHUTTERMINT_SHUTTERMINTURL}\"" $CFG
 sed -i "/^ValidatorPublicKey/c\ValidatorPublicKey = \"$(cat /data/chain/config/priv_validator_pubkey.hex)\"" $CFG
-sed -i "/^ListenAddresses/c\ListenAddresses = \"${SHUTTER_P2P_LISTENADDRESSES}\"" $CFG
-sed -i "/^AdvertiseAddresses/c\AdvertiseAddresses = \"${SHUTTER_P2P_ADVERTISEADDRESSES}\"" $CFG
-sed -i "/^CustomBootstrapAddresses/c\CustomBootstrapAddresses = ${_ASSETS_CUSTOM_BOOTSTRAP_ADDRESSES}" $CFG
-sed -i "/^SyncMonitorCheckInterval/c\SyncMonitorCheckInterval = ${_ASSETS_SYNC_MONITOR_CHECK_INTERVAL}" $CFG
-sed -i "/^DKGPhaseLength/c\DKGPhaseLength = ${_ASSETS_DKG_PHASE_LENGTH}" $CFG
-sed -i "/^DKGStartBlockDelta/c\DKGStartBlockDelta = ${_ASSETS_DKG_START_BLOCK_DELTA}" $CFG
+# sed -i "/^ListenAddresses/c\ListenAddresses = \"${SHUTTER_P2P_LISTENADDRESSES}\"" $CFG
+# sed -i "/^AdvertiseAddresses/c\AdvertiseAddresses = \"${SHUTTER_P2P_ADVERTISEADDRESSES}\"" $CFG
+# sed -i "/^CustomBootstrapAddresses/c\CustomBootstrapAddresses = ${_ASSETS_CUSTOM_BOOTSTRAP_ADDRESSES}" $CFG
+# sed -i "/^SyncMonitorCheckInterval/c\SyncMonitorCheckInterval = ${_ASSETS_SYNC_MONITOR_CHECK_INTERVAL}" $CFG
+# sed -i "/^DKGPhaseLength/c\DKGPhaseLength = ${_ASSETS_DKG_PHASE_LENGTH}" $CFG
+# sed -i "/^DKGStartBlockDelta/c\DKGStartBlockDelta = ${_ASSETS_DKG_START_BLOCK_DELTA}" $CFG
 sed -i "/^Enabled/c\Enabled = ${SHUTTER_METRICS_ENABLED}" $CFG
 sed -i "/^Port/c\Port = ${SHUTTER_METRICS_PORT}" $CFG
