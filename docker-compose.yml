@@ -32,6 +32,7 @@ x-shutter-environment: &shutter-environment
   #- SHUTTER_SHUTTERMINT_DKGSTARTBLOCKDELTA= - set via config script
   - SHUTTER_METRICS_ENABLED=false
   - SHUTTER_METRICS_PORT=9200
+  - SHUTTER_CHAIN_PORT=${CHAIN_PORT}
 
 x-shuttermint-environment: &shuttermint-environment
   - SHUTTERMINT_MONIKER=${KEYPER_NAME:-$(openssl rand -hex 8)}
@@ -126,7 +127,7 @@ services:
       - /rolling-shutter
       - chain
     ports:
-      - "27656:27656"
+      - "${CHAIN_PORT}:${CHAIN_PORT}"
       - "${METRICS_LISTEN_IP}:27660:27660"
     volumes_from:
       - assets:ro
