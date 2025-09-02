@@ -39,9 +39,9 @@ fi
 sed -i "/^DatabaseURL/c\DatabaseURL = \"${SHUTTER_DATABASEURL}\"" $CFG
 # sed -i "/^MaxNumKeysPerMessage/c\MaxNumKeysPerMessage = ${_ASSETS_MAX_NUM_KEYS_PER_MESSAGE}" $CFG
 # sed -i "/^SyncStartBlockNumber/c\SyncStartBlockNumber = ${_ASSETS_SYNC_START_BLOCK_NUMBER}" $CFG
-sed -i "/^PrivateKey/c\PrivateKey = \"${SHUTTER_CHAIN_NODE_PRIVATEKEY}\"" $CFG
+# sed -i "/^PrivateKey/c\PrivateKey = \"${SHUTTER_CHAIN_NODE_PRIVATEKEY}\"" $CFG
 sed -i "/^DeploymentDir/c\DeploymentDir = \"\"  # unused" $CFG
-sed -i "/^EthereumURL/c\EthereumURL = \"${SHUTTER_CHAIN_NODE_ETHEREUMURL}\"" $CFG
+# sed -i "/^EthereumURL/c\EthereumURL = \"${SHUTTER_CHAIN_NODE_ETHEREUMURL}\"" $CFG
 # sed -i "/^KeyperSetManager/c\KeyperSetManager = \"${_ASSETS_KEYPER_SET_MANAGER}\"" $CFG
 # sed -i "/^KeyBroadcastContract/c\KeyBroadcastContract = \"${_ASSETS_KEY_BROADCAST_CONTRACT}\"" $CFG
 # sed -i "/^ShutterRegistry/c\ShutterRegistry = \"${_ASSETS_SHUTTERREGISTRY}\"" $CFG
