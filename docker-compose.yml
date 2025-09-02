@@ -32,12 +32,12 @@ x-shutter-environment: &shutter-environment
   #- SHUTTER_SHUTTERMINT_DKGSTARTBLOCKDELTA= - set via config script
   - SHUTTER_METRICS_ENABLED=false
   - SHUTTER_METRICS_PORT=9200
-  - SHUTTER_CHAIN_PORT=${CHAIN_PORT}
 
 x-shuttermint-environment: &shuttermint-environment
   - SHUTTERMINT_MONIKER=${KEYPER_NAME:-$(openssl rand -hex 8)}
   - PUBLIC_IP=${PUBLIC_IP}
   - METRICS_ENABLED=${METRICS_ENABLED}
+  - SHUTTER_CHAIN_PORT=${CHAIN_PORT}
 
 services:
   db:
