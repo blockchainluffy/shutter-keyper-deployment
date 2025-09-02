@@ -9,7 +9,7 @@ CFG=/data/chain/config/config.toml
 rm /data/chain/config/genesis.json
 ln -s /assets/genesis.json /data/chain/config/genesis.json
 
-sed -i "/^seeds =/c\seeds = \"3fbcca4faab2d056e6c5e5f3508165428de94f36@46.101.186.142:26657\""
+sed -i "/^seeds =/c\seeds = \"3fbcca4faab2d056e6c5e5f3508165428de94f36@46.101.186.142:26657\"" $CFG
 sed -i "/^moniker =/c\moniker = \"${SHUTTERMINT_MONIKER}\"" $CFG
 sed -i "/^genesis_file =/c\genesis_file = \"/assets/genesis.json\"" $CFG
 sed -i "/^external_address =/c\external_address = \"${PUBLIC_IP}:27656\"" $CFG
