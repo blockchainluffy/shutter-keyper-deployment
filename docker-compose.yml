@@ -64,6 +64,10 @@ services:
   #     - ./config:/config
   #   command: "generate-config --output /config/generated.toml --force"
 
+  assets:
+    <<: *image-assets
+    stop_grace_period: "0s"
+
   keyper-initdb:
     <<: *image-main
     entrypoint:
@@ -106,6 +110,8 @@ services:
     image: busybox
     command: "./configure_shuttermint.sh"
     environment: *shuttermint-environment
+    volumes_from:
+      - assets:ro
     volumes:
       - ./_container_scripts/configure_shuttermint.sh:/configure_shuttermint.sh:ro
       - ./data:/data

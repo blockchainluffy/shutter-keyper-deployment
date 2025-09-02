@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-[[ -f /assets/variables.env ]] && . /assets/variables.env || (echo "Missing variables file (/assets/variables), assets container missing?"; exit 1)
+# [[ -f /assets/variables.env ]] && . /assets/variables.env || (echo "Missing variables file (/assets/variables), assets container missing?"; exit 1)
 
 SOURCE=/config/generated.toml
 CFG=/config/keyper.toml
@@ -32,7 +32,7 @@ if [[ -n "${_ENCRYPTION_KEY:-}" ]]; then
 fi
 
 # Values set from assets container and compose env varibles
-sed -i "/^InstanceID/c\InstanceID = ${_ASSETS_INSTANCE_ID}" $CFG
+# sed -i "/^InstanceID/c\InstanceID = ${_ASSETS_INSTANCE_ID}" $CFG
 if [ "$SHUTTER_HTTP_ENABLED" = "true" ] || [ "$SHUTTER_HTTP_ENABLED" = "false" ]; then
   sed -i "/^HTTPEnabled =/c\HTTPEnabled = $SHUTTER_HTTP_ENABLED" $CFG
 fi
