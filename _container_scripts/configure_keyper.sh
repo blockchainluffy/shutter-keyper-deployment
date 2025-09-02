@@ -15,7 +15,7 @@ if [[ -f "$CFG" ]]; then
   _ENCRYPTION_KEY=$(grep -e "^EncryptionKey =" $CFG || true)
 fi
 
-mv "$SOURCE" "$CFG"
+cp "$SOURCE" "$CFG"
 
 # Reapply saved values
 if [[ -n "${_ETH_ADDRESS:-}" ]]; then
