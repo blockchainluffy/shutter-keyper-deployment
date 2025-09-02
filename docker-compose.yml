@@ -15,7 +15,7 @@ x-image-metrics: &image-metrics
 x-shutter-environment: &shutter-environment
   #- SHUTTER_INSTANCEID= - set via config script
   - SHUTTER_DATABASEURL=postgres://postgres@db:5432/keyper
-  - SHUTTER_HTTP_ENABLED=${false}
+  - SHUTTER_HTTP_ENABLED=false
   #- SHUTTER_MAXNUMKEYSPERMESSAGE= - set via config script
   #- SHUTTER_CHAIN_SYNCSTARTBLOCKNUMBER= - set via config script
   - SHUTTER_CHAIN_NODE_PRIVATEKEY=${SIGNING_KEY}
@@ -30,7 +30,7 @@ x-shutter-environment: &shutter-environment
   - SHUTTER_SHUTTERMINT_SHUTTERMINTURL=http://chain:26657
   #- SHUTTER_SHUTTERMINT_DKGPHASELENGTH= - set via config script
   #- SHUTTER_SHUTTERMINT_DKGSTARTBLOCKDELTA= - set via config script
-  - SHUTTER_METRICS_ENABLED=${false}
+  - SHUTTER_METRICS_ENABLED=false
   - SHUTTER_METRICS_PORT=9200
 
 x-shuttermint-environment: &shuttermint-environment
