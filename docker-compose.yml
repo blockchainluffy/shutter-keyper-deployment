@@ -7,7 +7,7 @@ x-image-main: &image-main
   image: ${SHUTTER_IMAGE_ROLLING_SHUTTER:-ghcr.io/shutter-network/unverified-dev-build-do-not-use:branch-primev-poc-30149}
 
 x-image-assets: &image-assets
-  image: ${SHUTTER_IMAGE_ASSETS:-ghcr.io/shutter-network/assets:shutter-api-chiado-102000-test-version}
+  image: ${SHUTTER_IMAGE_ASSETS:-ghcr.io/shutter-network/assets:shutter-api-chiado-102000-primev-keypers}
 
 x-image-metrics: &image-metrics
   image: victoriametrics/vmagent:v1.101.0
