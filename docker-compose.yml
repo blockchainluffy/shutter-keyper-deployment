@@ -128,7 +128,6 @@ services:
       - chain
     ports:
       - "${CHAIN_PORT}:${CHAIN_PORT}"
-      - "${METRICS_LISTEN_IP}:27660:27660"
     volumes_from:
       - assets:ro
     volumes:
@@ -158,8 +157,6 @@ services:
       - ./config:/config
     ports:
       - ${P2P_PORT}:${P2P_PORT}
-      - "${METRICS_LISTEN_IP}:9200:9200"
-      - "3000:3000"
     depends_on:
       db:
         condition: service_healthy
