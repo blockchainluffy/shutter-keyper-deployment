@@ -4,7 +4,7 @@ x-logging: &logging
     max-file: 10
 
 x-image-main: &image-main
-  image: ${SHUTTER_IMAGE_ROLLING_SHUTTER:-ghcr.io/shutter-network/unverified-dev-build-do-not-use:branch-primev-poc-30149}
+  image: ${SHUTTER_IMAGE_ROLLING_SHUTTER:-ghcr.io/shutter-network/unverified-dev-build-do-not-use:branch-primev-poc-30157}
 
 x-image-assets: &image-assets
   image: ${SHUTTER_IMAGE_ASSETS:-ghcr.io/shutter-network/assets:shutter-api-chiado-102000-shutter-primev-hoodi}
@@ -88,6 +88,8 @@ services:
       - /rolling-shutter
       - chain
     environment: *shuttermint-environment
+    volumes_from:
+      - assets:ro
     volumes:
       - ./data/chain:/chain
     command: "init --root /chain --genesis-keyper ${GENESIS_KEYPER} --blocktime ${SM_BLOCKTIME} --listen-address tcp://0.0.0.0:26657 --role validator"
@@ -99,6 +101,8 @@ services:
     image: busybox
     command: "./configure_keyper.sh"
     environment: *shutter-environment
+    volumes_from:
+      - assets:ro
     volumes:
       - ./_container_scripts/configure_keyper.sh:/configure_keyper.sh:ro
       - ./data:/data
